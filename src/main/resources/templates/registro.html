@@ -2,5 +2,51 @@
 
   <div th:fragment="content">
     <h3>registro</h3>
+    <div class="container">
+      <div class="card mt-3">
+        <div class="card-body">
+          <form th:action="@{/registro}" method="post" id="agregarUsuario" th:object="${user}">
+            <label for="nombre">
+              Nombre: <span class="text-danger">*</span>
+            </label>
+            <input  class="form-control" th:field="*{nombre}" type="text" maxlength="20" required>
+            <div class="alert alert-danger" th:errors="*{nombre}"></div>
+            <label for="primerApellido">
+              Primer Apellido: <span class="text-danger">*</span>
+            </label>
+            <input class="form-control" th:field="*{primerApellido}"type="text" maxlength="30" required>
+            <div class="alert alert-danger" th:errors="*{primerApellido}"></div>
+            <label for="segundoApellido">
+              Segundo Apellido:
+            </label>
+            <input class="form-control" th:field="*{segundoApellido}" type="text" maxlength="30">
+            <div class="alert alert-danger" th:errors="*{segundoApellido}"></div>
+            <label for="rfc">
+              RFC: <span class="text-danger">*</span>
+            </label>
+            <input class="form-control" th:field="*{rfc}" type="text" maxlength="13" minlength="12" required>
+            <div class="alert alert-danger" th:errors="*{rfc}"></div>
+            <label for="telefono">
+              Teléfono <span class="text-danger">*</span>
+            </label>
+            <input class="form-control" th:field="*{telefono}" type="text" maxlength="10" minlength="10" required>
+            <div class="alert alert-danger" th:errors="*{telefono}"></div>
+            <label for="correoElectronico">
+              Correo Electrónico <span class="text-danger">*</span>
+            </label>
+            <input class="form-control" th:field="*{correoElectronico}" type="email" maxlength="30" required>
+            <div class="alert alert-danger" th:errors="*{correoElectronico}"></div>
+            <label for="contrasena">
+              Contraseña <span class="text-danger">*</span>
+            </label>
+            <input class="form-control" th:field="*{contrasena}" type="password" maxlength="8" required>
+            <div class="alert alert-danger" th:errors="*{contrasena}"></div>
+          </form>
+          <button  class="btn btn-success mt-3" type="submit" form="agregarUsuario">Registrar</button>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </div>

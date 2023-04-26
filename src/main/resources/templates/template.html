@@ -4,7 +4,11 @@
     <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title>Extra del extra</title>
+        <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+        <link rel="stylesheet" th:href="@{/assets/css/notyf.min.css}">
+        <link rel="stylesheet" th:href="@{/assets/css/fontawesome.min.css}">
+        <link rel="stylesheet" th:href="@{/assets/css/sweetalert2.min.css}">
     </head>
     <body>
     <nav class="navbar navbar-expand-lg bg-light">
@@ -33,6 +37,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" th:href="@{/logout}">Cerrar sesión</a>
                     </li>
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/bitacora}">Bitacora</a>
+                </li>
 
 
                 </ul>
@@ -40,6 +47,18 @@
         </div>
     </nav>
     <div th:replace="${content}"></div>
+    <script th:src="@{/assets/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/assets/js/notyf.min.js}"></script>
+    <script th:src="@{/assets/js/sweetalert2.all.min.js}"></script>
+    <script>
+        const notyf = new Notyf();
+    </script>
+    <script th:if="${successMessage}">
+        notyf.success("Usuario validado")
+    </script>
+    <script th:if="${errorMessage}">
+        notyf.error("Error en los datos ingresados")
+    </script>
     </body>
     </html>
 </th:block>

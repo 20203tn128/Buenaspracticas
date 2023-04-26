@@ -1,0 +1,28 @@
+<div th:replace="~{template::template(~{::content})}">
+
+    <div th:fragment="content">
+        <h3>Bitacora de datos</h3>
+        <div class="table table-responsive">
+            <table class="table  table-striped table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre de usuario</th>
+                    <th scope="col">Direccion ip</th>
+                    <th scope="col">Fecha</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="login : ${logins}" th:object="${login}">
+                    <td th:text="*{id}"></td>
+                    <td th:text="*{userName}"></td>
+                    <td th:text="*{ipAddress}"></td>
+                    <td th:text="*{date}"></td>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
